@@ -9,20 +9,20 @@
             "sequence": [
                 {
                     "channel": "NASCOM",
-                    "message": "FETCH-SDO-141A"
+                    "message": "FETCH-SDO-171A"
                 }
             ],
             "reactions": [
                 {
                     "channel": "NASCOM",
-                    "message": "DID-FETCH-SDO-141A",
+                    "message": "DID-FETCH-SDO-171A",
                     "subroutine": {
                         "name": "Save SDO Data",
                         "description": "Save fetched SDO data.",
                         "sequence": [
                             {
                                 "channel": "NASCOM",
-                                "message": "STORE-SDO-141A"
+                                "message": "STORE-SDO-171A"
                             }
                         ],
                         "reactions": []
@@ -30,14 +30,14 @@
                 },
                 {
                     "channel": "NASCOM",
-                    "message": "DID-STORE-SDO-141A",
+                    "message": "DID-STORE-SDO-171A",
                     "subroutine": {
                         "name": "Notify Client",
                         "description": "Notify client that the SDO Beacon has been recieved.",
                         "sequence": [
                             {
                                 "channel": "NASCOM",
-                                "message": "NOTIFY-SDO-141A-BEACON"
+                                "message": "NOTIFY-SDO-171A-BEACON"
                             }
                         ],
                         "reactions": []

@@ -19,7 +19,7 @@ rxClient.on("message", function (channel, message) {
 rxClient.subscribe("NASCOM");
 
 
-reactions["NASCOM|FETCH-SDO-141A"] = {
+reactions["NASCOM|FETCH-SDO-171A"] = {
 	callback: function () {
 		
 
@@ -40,7 +40,7 @@ reactions["NASCOM|FETCH-SDO-141A"] = {
 
 		    res.on('end',function(){
 		        fileWriteStream.end();
-				txClient.publish("NASCOM", "DID-FETCH-SDO-141A");
+				txClient.publish("NASCOM", "DID-FETCH-SDO-171A");
 				console.log("File written. Sleeeping for 15 minutes.");
 		    });
 		});
@@ -50,14 +50,14 @@ reactions["NASCOM|FETCH-SDO-141A"] = {
 	subroutine: {}
 }
 
-reactions["NASCOM|STORE-SDO-141A"] = {
+reactions["NASCOM|STORE-SDO-171A"] = {
 	callback: function () {
-		txClient.publish("NASCOM", "DID-STORE-SDO-141A");
+		txClient.publish("NASCOM", "DID-STORE-SDO-171A");
 	},
 	subroutine: {}
 }
 
-reactions["NASCOM|NOTIFY-SDO-141A-BEACON"] = {
+reactions["NASCOM|NOTIFY-SDO-171A-BEACON"] = {
 	callback: function () {
 		
 		exec("terminal-notifier -message \"Nascom Beacon Received\" -title \"An update for the A151 beacon has been recorded.\"");
