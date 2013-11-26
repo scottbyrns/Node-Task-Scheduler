@@ -1,0 +1,49 @@
+[{
+    "name": "Fetch NASCOM SDO Beacon",
+    "description": "Download the latest SDO Beacon photograph from NASCOM for the SDO mission.",
+	"frequency": "900000",
+    "subroutines": [
+        {
+            "name": "Fetch SDO Data",
+            "description": "Fetch the latest SDO data.",
+            "sequence": [
+                {
+                    "channel": "NASCOM",
+                    "message": "FETCH-SDO-141A"
+                }
+            ],
+            "reactions": [
+                {
+                    "channel": "NASCOM",
+                    "message": "DID-FETCH-SDO-141A",
+                    "subroutine": {
+                        "name": "Save SDO Data",
+                        "description": "Save fetched SDO data.",
+                        "sequence": [
+                            {
+                                "channel": "NASCOM",
+                                "message": "STORE-SDO-141A"
+                            }
+                        ],
+                        "reactions": []
+                    }
+                },
+                {
+                    "channel": "NASCOM",
+                    "message": "DID-STORE-SDO-141A",
+                    "subroutine": {
+                        "name": "Notify Client",
+                        "description": "Notify client that the SDO Beacon has been recieved.",
+                        "sequence": [
+                            {
+                                "channel": "NASCOM",
+                                "message": "NOTIFY-SDO-141A-BEACON"
+                            }
+                        ],
+                        "reactions": []
+                    }
+                }
+            ]
+        }
+    ]
+}]

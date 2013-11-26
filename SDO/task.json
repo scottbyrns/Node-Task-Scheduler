@@ -1,0 +1,48 @@
+{
+    "name": "Fetch NASCOM SDO Beacon",
+    "description": "Download the latest SDO Beacon photograph from NASCOM for the SDO mission.",
+    "procedure": [
+        {
+            "name": "Fetch SDO Data",
+            "description": "Fetch the latest SDO data.",
+            "sequence": [
+                {
+                    "context": "NASCOM",
+                    "command": "FETCH-SDO-141A"
+                }
+            ],
+            "reactions": [
+                {
+                    "context": "NASCOM",
+                    "command": "DID-FETCH-SDO-141A",
+                    "subroutine": {
+                        "name": "Save SDO Data",
+                        "description": "Save fetched SDO data.",
+                        "sequence": [
+                            {
+                                "context": "NASCOM",
+                                "command": "STORE-SDO-141A"
+                            }
+                        ],
+                        "reactions": []
+                    }
+                },
+                {
+                    "context": "NASCOM",
+                    "command": "DID-STORE-SDO-141A",
+                    "subroutine": {
+                        "name": "Notify Client",
+                        "description": "Notify client that the SDO Beacon has been recieved.",
+                        "sequence": [
+                            {
+                                "context": "NASCOM",
+                                "command": "NOTIFY-SDO-141A-BEACON"
+                            }
+                        ],
+                        "reactions": []
+                    }
+                }
+            ]
+        }
+    ]
+}
