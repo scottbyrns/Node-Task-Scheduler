@@ -9,6 +9,22 @@ In the SDO folder you will find an example of a task handler that will fetch an 
 
 
 
+## Tasks
+Tasks have many subroutines organized into a linear procedure.
+
+## Subroutines
+Subroutines are composed of a set of instructions and a map of reactions.
+The instructions are akin to the constructor or initialization. The reactions serve as callbacks or methods within a task.
+
+## Instructions
+Instructions map channel and messages into Redis
+
+## Reactions
+Reactions map a channel subscription message reciept to the execution of a subroutine.
+
+
+
+
 ##### TODO
 
 * Save state of task list (remove completed tasks that don't repeat)
